@@ -1,0 +1,25 @@
+{
+  "name": "nasa_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "cd server && yarn",
+    "install-client": "npm install --prefix client",
+    "install": "concurrently \"npm run install-server\" \"npm run install-client\"",
+    "server": "cd server && yarn dev",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test-client": "npm test --prefix client",
+    "test-server": "cd server && yarn test",
+    "test": "cd server && yarn test",
+    "deploy": "npm run build --prefix client && cd server && yarn test && yarn dev",
+    "deploy-cluster": "npm run build --prefix client && cd server && yarn test && yarn cluster"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
