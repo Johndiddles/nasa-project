@@ -8,7 +8,7 @@
     "start": "node src/server.js",
     "cluster": "pm2 start src/server.js -i max",
     "kill-cluster": "pm2 stop server",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --setupFiles dotenv/config --detectOpenHandles"
   },
   "keywords": [],
   "author": "",
