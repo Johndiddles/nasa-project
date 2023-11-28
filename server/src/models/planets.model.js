@@ -29,7 +29,7 @@ function loadPlanetsData() {
       .on("data", async (data) => {
         if (isHabitablePlanet(data)) {
           // TODO: Create planet in DB
-          await savePlanet(data);
+          savePlanet(data);
         }
       })
       .on("error", (err) => {
@@ -37,13 +37,7 @@ function loadPlanetsData() {
         reject(err);
       })
       .on("end", async () => {
-        // console.log(
-        //   habitablePlanets.map((planet) => {
-        //     return planet["keplerName"];
-        //   })
-        // );
         const planetsCount = (await getAllPlanets()).length;
-        // console.log(`${planetsCount} habitable planets found!`);
         resolve();
       });
   });
